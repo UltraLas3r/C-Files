@@ -1,7 +1,9 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include <string.h>
-#include <unistd.h> 
+#include <unistd.h>
+#include <ctype.h>
+
 
 int first_method();
 void second_variables_intro();
@@ -10,22 +12,42 @@ void format_specifiers();
 int arithmetic_operators();
 void user_input();
 void self_destruct_sequence();
+void tempConversion();
+int calculator_program();
+void happy_birthday_function();
+void ternary_operator();
+
+
+void find_odd_or_even(int xx, int yyy, char value[])
+{
+    //print all odd or even values between x and y 
+    printf("%d\n", xx);
+    printf("%d\n", yyy);
+    printf("%s", value);
+
+}
 
 int main(){
-    
-   
     //first_method();
     //second_variables_intro();
     //practicing_bools();
-
     //format_specifiers();
     // arithmetic_operators();
     //user_input_addressOfOperator();
     //if_statement_practice();
+    //char grade = 'a';
+    //switch_case_practice(grade);
+    //temp_conversion();
+    //calculator_program();
+    // for (int i = 1; i <= 4; ++i)
+    // {
+    //     int value = i;
+    //     happy_birthday_function(value);
+    // }
 
-    char grade = 'a';
-    switch_case_practice(grade);
+    // ternary_operator();
 
+   
 
     return 0; //return 0 if program runs successfully, else return 1
 }
@@ -141,13 +163,12 @@ void if_statement_practice(){
 
 }
 
-
 void switch_case_practice(char grade){
    const char* statement;
-   bool destruct;
+   bool destruct = false;
 
     switch(grade){
-        case 'A' || 'a':
+        case 'A':
         statement = "Youre a rockstar!";
         break;
 
@@ -160,35 +181,41 @@ void switch_case_practice(char grade){
         break;
 
         default:
+       
         statement = "invalid grade";
         destruct = true;
+        printf("\n\nINVALID GRADE (>>>%c<<<), INITIATE SELF DESTRUCT\n\n", grade);
         break;
 
     }
 
-    //printf("INVALID GRADE (%s), INITIATE SELF DESTRUCT", grade);
+    
 
     if (destruct == true){
+            
+            destruct = true;
 
-        
-
-        for (int i = 1; i <= 100; ++i) {
-            self_destruct_sequence(i);
-            usleep(50000); // Sleep for 50 milliseconds to simulate progress
+            for (int i = 1; i <= 100; ++i) {
+                self_destruct_sequence(i);
+                usleep(50000); // Sleep for 50 milliseconds to simulate progress
+                
+                
+                if (i == 100){
+                    printf ("\n\nBOOM");
+                }
+            }
+            
+            printf("\n");
+            return;
         }
-        
-        printf("\n");
-        return;
-    }
 
     printf(statement);
 }
 
-
-#define BAR_WIDTH 50
-
 void self_destruct_sequence(int percentage)
     {
+        #define BAR_WIDTH 50
+
         int filled_length = (percentage * BAR_WIDTH) / 100;
         int empty_length = BAR_WIDTH - filled_length;
 
@@ -205,3 +232,131 @@ void self_destruct_sequence(int percentage)
         fflush(stdout);
 
     }
+
+int temp_conversion(){
+
+
+    char unit;
+    float temp;
+
+    printf("Is the temperature in (F) or (C)?: ");
+    scanf("%c", &unit);
+
+    unit = toupper(unit);
+
+    if (unit == 'C'){
+        printf("Enter temperature in Celsius: ");
+        scanf("%f", &temp);
+
+        temp = (temp * (9/5) + 32);
+        
+        printf("It is %.1f degrees Farenheit", temp);
+        
+    }
+
+    else if (unit == 'F')
+    {
+        printf("Enter temperature in Farenheit: ");
+        scanf("%f", &temp);
+
+        temp = ((temp - 32) * 5) / 9;
+        printf("Temp unit type is Fahrenheit:\n");
+        printf("It is %.1f degrees Celsius", temp);
+    }
+
+   
+   else 
+    {
+        printf("\n UNIT IS UNDEFINED \n");
+        temp_conversion();
+    }
+ 
+}
+
+int calculator_program(){
+    char operator; // multiply, divide, add, subtract
+    double num1;
+    double num2;
+    double result;
+
+    printf("Enter first number: ");
+    scanf("%d", &num1);
+    printf("%d\n", num1);
+
+    printf("Enter second number: ");
+    scanf("%d", &num2);
+    printf("%d\n", num2);
+
+    printf("enter the symbol for the operation you would like to perform\n");
+    printf("multiply (*)  divide (/)  add(+)  subtract(-): ");
+    scanf(" %c", &operator);
+
+    switch (operator){
+        case '*':
+            result = num1 * num2;
+            printf("\n%d * %d = %d\n", num1, num2, result);
+            break;
+
+        case '/':
+            if (num2 != 0) {
+                result = num1 / num2;
+                printf("\n%d / %d = %d\n", num1, num2, result);
+            } else {
+                printf("Error: Division by zero is not allowed.\n");
+            }
+            break;
+
+        case '+':
+            printf("%d ===> num1\n", num1);
+            printf("%d ===> num2\n", num2);
+            result = num1 + num2;
+       
+            printf(" %d result", result);
+            
+            break;
+
+        case '-':
+            result = num1 - num2;
+            printf("\n%d - %d = %d\n", num1, num2, result);
+            break;
+
+        default:
+            printf("invalid input try again");
+            break;
+    }
+    
+    return 0;
+}
+
+void happy_birthday_function(int value){
+    int verse = value;
+    if (verse == 3)
+    {
+        printf("Happy Birthday dear... YOU\n");
+    }
+
+    else if (verse == 1 || verse == 2 || verse == 4)
+    {
+        printf("Happy Birthday to you\n");
+    }    
+}
+
+int findMax(int x, int y){
+    int _x = x;
+    int _y = y;
+   
+    return (_x > _y) ? _x : _y;
+}
+
+
+
+
+void ternary_operator()
+{
+    // (condition) ? value if true : value if false ;
+
+    int max = findMax(75,34);
+
+    printf("%d", max);
+}
+
