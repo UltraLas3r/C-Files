@@ -18,14 +18,6 @@ void happy_birthday_function();
 void ternary_operator();
 
 
-void find_odd_or_even(int xx, int yyy, char value[])
-{
-    //print all odd or even values between x and y 
-    printf("%d\n", xx);
-    printf("%d\n", yyy);
-    printf("%s", value);
-
-}
 
 int main(){
     //first_method();
@@ -47,7 +39,12 @@ int main(){
 
     // ternary_operator();
 
-   
+    int bro = 1;
+    int sef = 96;
+    char value[]= "odd";
+
+    find_odd_or_even(bro, sef, value);
+
 
     return 0; //return 0 if program runs successfully, else return 1
 }
@@ -348,9 +345,6 @@ int findMax(int x, int y){
     return (_x > _y) ? _x : _y;
 }
 
-
-
-
 void ternary_operator()
 {
     // (condition) ? value if true : value if false ;
@@ -360,3 +354,16 @@ void ternary_operator()
     printf("%d", max);
 }
 
+void find_odd_or_even(int xx, int yyy, char value[])
+{
+    for (int i = 0; i < yyy; i++){
+        if ((strcmp(value, "odd") == 0 && i %2 == 1))
+            {
+                printf("%d ", i);
+            }
+        if ((strcmp(value, "even") == 0 && i %2 == 0))
+            {
+                printf("%d ", i);
+            }
+    }
+}
