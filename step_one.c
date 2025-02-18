@@ -16,13 +16,19 @@ void tempConversion();
 int calculator_program();
 void happy_birthday_function();
 void ternary_operator();
-
+void find_odd_or_even(int, int, char[]);
+void function_prototypes(char[], int);
+int for_loop_practice(int);
+int do_while_loop_practice();
+int nested_for_loops();
+int break_vs_continue();
+int array_practice_one();
 
 
 int main(){
     //first_method();
     //second_variables_intro();
-    //practicing_bools();
+    //practicing_bools();1
     //format_specifiers();
     // arithmetic_operators();
     //user_input_addressOfOperator();
@@ -36,15 +42,20 @@ int main(){
     //     int value = i;
     //     happy_birthday_function(value);
     // }
-
     // ternary_operator();
 
     int bro = 1;
     int sef = 96;
     char value[]= "odd";
 
-    find_odd_or_even(bro, sef, value);
-
+    //find_odd_or_even(bro, sef, value);
+    //function_prototypes("Mike", 29);
+    //for_loop_practice(22);
+    // while_loop_practice();
+    // do_while_loop_practice();
+    nested_for_loops();
+    //reak_vs_continue();
+    //array_practice_one();
 
     return 0; //return 0 if program runs successfully, else return 1
 }
@@ -356,14 +367,102 @@ void ternary_operator()
 
 void find_odd_or_even(int xx, int yyy, char value[])
 {
+    //print all odd or even values between x and y 
+    // printf("%d\n", xx);
+    // printf("%d\n", yyy);
+    // printf("%s", value);
+
     for (int i = 0; i < yyy; i++){
         if ((strcmp(value, "odd") == 0 && i %2 == 1))
             {
                 printf("%d ", i);
             }
-        if ((strcmp(value, "even") == 0 && i %2 == 0))
+       if ((strcmp(value, "even") == 0 && i %2 == 0))
             {
                 printf("%d ", i);
             }
     }
+}
+
+void function_prototypes(char name[], int age){
+    //  a function prototype Ensures that a call to a function is made with the correct arguments
+    // you put the prototype at the top of the script.
+
+    //char name_value[25];
+    char age_value;  
+
+    //name_value[25] = name;
+    age_value = age;
+
+    printf("Hello %s, you are %d years old!", age_value);
+
+
+}
+
+int for_loop_practice(int index)
+{
+    for(int i = 1; i <= index; i++)
+    {
+        printf("test %d\n", i+=4);
+    }
+
+    return 0;
+}
+
+int while_loop_practice(){
+    //repeat a section of code, possibly unlimited times, WHILE some condition is/remains true, it may never execute, or it could execute infinitely
+    //Checks for a condition, THEN executes the block of code.
+
+    char name[30];
+
+    printf("Whats ur name?: ");
+    fgets(name, 30, stdin); // this will assign the variable name (with a size of 30 bits) with the standard input from the user.
+
+    name[strlen(name) - 1] = '\0';
+
+    while (strlen(name) == 0){
+        printf("You entered nothing, try again");
+
+        printf("Whats ur name?: ");
+        fgets(name, 30, stdin); 
+
+        name[strlen(name) - 1] = '\0';
+
+    }
+
+    printf("Hello %s", name);
+
+    return 0; 
+
+}
+
+int do_while_loop_practice()
+{
+    // always executes a block of code ONCE, then checks a condition.
+    int number = 0;
+    int sum = 0;
+
+    do 
+    {
+        printf("Enter a number > 0: ");
+        scanf("%d", &number);
+        
+        sum += number;
+    } while (number > 0);
+
+    printf("sum: %d", sum);
+    return 0; 
+}
+
+int nested_for_loops(){
+    return 0;
+}
+
+int break_vs_continue(){
+    return 0;
+}
+
+int array_practice_one(){
+
+    return 0;
 }
