@@ -878,6 +878,7 @@ int quiz_game(){
         }
         printf("\n");
         printf("*********************************\n");
+
     }
 
     // printf("First question: \n %s, \n %s", questions[0], options[0]);
@@ -891,6 +892,10 @@ int quiz_game(){
 }
 
 int bitwise_operators(){
+    // special operators used in bit level programming (knowing binary is importamt for this topic)
+
+    // & = AND, | = OR, ^ = XOR, << = left shift, >> = right shift
+    
    
     
     return 0;
