@@ -3,6 +3,8 @@
 #include <string.h>
 #include <unistd.h>
 #include <ctype.h>
+#include <time.h>
+#include <stdlib.h>
 
 
 int first_method();
@@ -25,9 +27,10 @@ int break_vs_continue();
 int array_practice_one();
 int variable_value_swap();
 int sort_an_array();
-    int structs_part_one();
-    int typdef();
-    void array_of_structs();
+int structs_part_one();
+int typdef();
+void array_of_structs();
+void random_number_guessing_game();
 
 
 int main(){
@@ -69,7 +72,9 @@ int main(){
     //structs_practice();
     //typdef_practice();
     // array_of_structs();
-    enums_practice();
+    //enums_practice();
+    // random_numbers();
+    random_number_guessing_game();
 
     return 0; //return 0 if program runs successfully, else return 1
 }
@@ -763,8 +768,6 @@ void array_of_structs(){
         }
 }
 
-
-
 int enums_practice(){
     //each enum has a number associated with it, mouseover the enum to see it's number
     // you can assign each enum a custom value if you wish, 
@@ -789,8 +792,42 @@ int enums_practice(){
 
 int random_numbers(){
 
+    srand(time(0));
+
+    int number1 = ((rand() % 100) + 1);
+    int number2 = ((rand() % 100) + 1);
+    int number3 = ((rand() % 100) + 1);
+
+    printf("Your first number is: %d \n", number1);
+    printf("Your second number is: %d \n", number2);
+    printf("Your third number is: %d ", number3);
+
 }
 
-int randon_number_guessing_game(){
-    
+int random_number_guessing_game(){
+    srand(time(0));
+    int playerGuess;
+    int numberToGuess = ((rand() % 100) + 1);
+    int guessCounter = 5;
+
+    printf("Guess a number between 1 and 100");
+    scanf("%d", &playerGuess);
+
+    if (playerGuess < numberToGuess){
+        printf("Too low! try again!");
+        guessCounter--;
+        printf("Guesses left: %d", guessCounter);
+    }
+
+    else if (playerGuess > numberToGuess)
+    {
+        printf("Too High! Try again!");
+        guessCounter++;
+    }
+
+    else
+    {
+        printf("Your guess >> %d << \n ~~~!!! IS CORRECT!! !!~~~ \n");
+    }
+
 }
