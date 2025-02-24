@@ -30,7 +30,7 @@ int sort_an_array();
 int structs_part_one();
 int typdef();
 void array_of_structs();
-void random_number_guessing_game();
+int random_number_guessing_game();
 
 
 int main(){
@@ -807,27 +807,69 @@ int random_numbers(){
 int random_number_guessing_game(){
     srand(time(0));
     int playerGuess;
-    int numberToGuess = ((rand() % 100) + 1);
+    int numberToGuess = ((rand() % 50) + 1);
     int guessCounter = 5;
 
-    printf("Guess a number between 1 and 100");
+    printf("Guess a number between 1 and 50: ");
+    
+while (guessCounter > 0)
+    {
+    printf("\nYou have %d guesses left. \n Enter your guess: ", guessCounter);
     scanf("%d", &playerGuess);
 
-    if (playerGuess < numberToGuess){
-        printf("Too low! try again!");
-        guessCounter--;
-        printf("Guesses left: %d", guessCounter);
-    }
+        if (playerGuess == numberToGuess)
+            {
+                printf("Your guess >> %d << \n ~~~!!! IS CORRECT!! !!~~~ \n", playerGuess);
+                break;
+            }
 
-    else if (playerGuess > numberToGuess)
-    {
-        printf("Too High! Try again!");
-        guessCounter++;
-    }
+        if (playerGuess < numberToGuess)
+            {
+                printf("Too low! try again!");
+                guessCounter--;
+                printf("Guesses left: %d", guessCounter);
+            }
 
-    else
-    {
-        printf("Your guess >> %d << \n ~~~!!! IS CORRECT!! !!~~~ \n");
-    }
+        else if (playerGuess > numberToGuess)
+            {
+                printf("Too High! Try again!");
+                guessCounter--;
+            }
 
+    }
+    if(guessCounter == 0)
+        {
+            printf("\nthe number was : %d \n", numberToGuess);
+            printf("you lose\n loser");
+        }
+
+    return 0;
+}
+
+int quiz_game(){
+
+}
+
+int bitwise_operators(){
+
+}
+
+int memory_addressing(){
+
+}
+
+int pointers_practice() {
+
+}
+
+int writing_files() {
+
+}
+
+int reading_files() {
+
+}
+
+int tic_tac_toe() {
+    
 }
