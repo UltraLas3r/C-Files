@@ -74,7 +74,8 @@ int main(){
     // array_of_structs();
     //enums_practice();
     // random_numbers();
-    random_number_guessing_game();
+    // random_number_guessing_game();
+    quiz_game();
 
     return 0; //return 0 if program runs successfully, else return 1
 }
@@ -847,29 +848,80 @@ while (guessCounter > 0)
 }
 
 int quiz_game(){
+    char questions[][100] = 
+        {
+         "1. What is the name Spongebob's pet snail?", 
+         "2. What instrument does Squidward play?",
+         "3. What does Mr. krab's love more than anything?"
+        };
+    
+    char options[][4][100] = 
+        {
+            {"A. Gary", "B. Larry", "C. Barry", "D. Harry"},
+            {"A. Guitar", "B. Clarinet", "C. Piano", "D. Drums"},
+            {"A. Money", "B. Jellyfish", "C. Krabby Patties", "D. Sandy"}
+        };
 
+    char answers[3] = {'A', 'B', 'A'};
+    int numberOfQuestions = (sizeof(questions)/sizeof(questions[0]));
+    char playerGuess;
+    int playerScore;
+
+    for (int i = 0; i < numberOfQuestions; i++){
+        printf("*********************************\n");
+        printf("%s\n", questions[i] );
+
+        for (int j = 0; j < 4; j++)
+        {
+            printf("%s ", options[i][j]);
+            
+        }
+        printf("\n");
+        printf("*********************************\n");
+    }
+
+    // printf("First question: \n %s, \n %s", questions[0], options[0]);
+
+    // printf("\nSecond question: \n %s, \n %s", questions[1], options[0]);
+
+    // printf("\nFinal question: \n %s, \n %s", questions[2], options[0]);
+
+
+    return 0;
 }
 
 int bitwise_operators(){
-
+   
+    
+    return 0;
 }
 
 int memory_addressing(){
-
+   
+    
+    return 0;
 }
 
 int pointers_practice() {
-
+    
+    
+    return 0;
 }
 
 int writing_files() {
-
+    
+    
+    return 0;
 }
 
 int reading_files() {
-
+    
+    
+    return 0;
 }
 
 int tic_tac_toe() {
     
+    
+    return 0;
 }
