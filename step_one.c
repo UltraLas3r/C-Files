@@ -68,7 +68,8 @@ int main(){
     //sort_an_array();
     //structs_practice();
     //typdef_practice();
-    array_of_structs();
+    // array_of_structs();
+    enums_practice();
 
     return 0; //return 0 if program runs successfully, else return 1
 }
@@ -762,3 +763,34 @@ void array_of_structs(){
         }
 }
 
+
+
+int enums_practice(){
+    //each enum has a number associated with it, mouseover the enum to see it's number
+    // you can assign each enum a custom value if you wish, 
+    enum Day{Sun = 1, Mon, Tue, Wed, Thur, Fri, Sat};
+
+    enum Day today = Sun;
+    // can be declared inside or outside of the main function
+    // a user defined type of named integer identifiers to help make the program more readable
+    // treated as integers
+
+    if (today == Sun || today == Sat)
+    {
+        printf("Its the weekend!! party time!!");
+    }
+
+    else
+    {
+        printf("Today is: %d \n", today);
+        printf("I have to work sadddd");
+    }
+}
+
+int random_numbers(){
+
+}
+
+int randon_number_guessing_game(){
+    
+}
