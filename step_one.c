@@ -31,6 +31,10 @@ int structs_part_one();
 int typdef();
 void array_of_structs();
 int random_number_guessing_game();
+int enums_practice();
+int random_numbers();
+int quiz_game();
+int memory_addressing();
 
 
 int main(){
@@ -75,7 +79,8 @@ int main(){
     //enums_practice();
     // random_numbers();
     // random_number_guessing_game();
-    quiz_game();
+    //quiz_game();
+    memory_addressing();
 
     return 0; //return 0 if program runs successfully, else return 1
 }
@@ -895,15 +900,50 @@ int bitwise_operators(){
     // special operators used in bit level programming (knowing binary is importamt for this topic)
 
     // & = AND, | = OR, ^ = XOR, << = left shift, >> = right shift
+
+    int x = 6; // 6  = 00000110
+    int y = 12;// 12 = 00001100
+    int z = 0; // 0  = 00000000
+
+    //operator examples 
+    z = x & y; // if bit in corresponding x and y
+               // columns are both the same, then bit in corresponding z column changes to 1
+
+    printf("AND = %d\n", z);
+
+    z = x | y;
+    printf("OR = %d\n", z);
+
+    z = x & y;
+    printf("ZOR = %d\n", z);
     
+    //shift bits left or right a specified number of times.
+    // example 10110010 << is 01100100 
    
+    z = x << 1;
+    printf("AND = %d\n", z);
     
     return 0;
 }
 
 int memory_addressing(){
-   
+   // memory = an array of bytes within RAM (street)
+   // memory block = a single unit (byte) within memory, used to hold some value (person?)
+   // memory address = the address of where a memory block is located (house address)
+
+   char a = 'X';
+   char b = 'Y';
+   char c = 'Z';
     
+   printf("%d bytes\n", sizeof(a));
+   printf("%d bytes\n", sizeof(b));
+   printf("%d bytes\n", sizeof(c));
+
+    printf("%p\n", &a);
+    printf("%p\n", &b);
+    printf("%p\n", &c);
+
+
     return 0;
 }
 
