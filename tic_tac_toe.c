@@ -170,8 +170,6 @@ int main(){
     char winner = ' ';
     char response;
   
-    
-
     do 
     {
         winner = ' ';

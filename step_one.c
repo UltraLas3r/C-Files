@@ -926,8 +926,6 @@ int bitwise_operators(){
     return 0;
 }
 
-
-
 int writing_files() {
     
     
