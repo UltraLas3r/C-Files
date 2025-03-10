@@ -6,6 +6,14 @@
 #include <time.h>
 #include <stdlib.h>
 
+
+
+int main(){
+
+    return 0;
+    
+}
+
 int memory_addressing(){
     // memory = an array of bytes within RAM (street)
     // memory block = a single unit (byte) within memory, used to hold some value (person?)
@@ -97,47 +105,4 @@ int memory_addressing(){
     
     printf("%c", name);
       
- }
-
- int add_or_remove_student(int action, char fname[], char lname[])
- {
-    //action variable. value of 1 adds, value of 0 removes.
-
-    //requires first and last name
-    // concatenates the name so there is a return variable of full name.
-
-    //if action == 1, return concatenated string value of the full name
-
-    //if action == 0, call the add/remove student function to remove the student from the roster
-
-
- }
-
- int remove_student_from_roster()
- {
-    //delete student from student roster
-
- }
-
-
- void student_gpa_scores(){
-    //a collection of student test scores
- }
-
- void add_or_remove_gpa(int gpa_value, char fullname[]){
-    //add or remove gpa to the gpa roster
- }
-
- int main(){
-
-   // memory_addressing();
-
-    //pointers_practice();
-
-    //student_gpa_scores();
-
-    student_list("Jericho Bunker");
-
-
-    return 0;
  }
