@@ -53,15 +53,11 @@ int weather_arrays()
                 case 5:
                 printf(" %.2f, ", array_of_values[i][j]);
                 break;
-
             }
-
-            
-           
+    
         }
         printf("\n");
     }
-
 
     return 0;
 }
