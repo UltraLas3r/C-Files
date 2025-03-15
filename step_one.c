@@ -3,6 +3,8 @@
 #include <string.h>
 #include <unistd.h>
 #include <ctype.h>
+#include <time.h>
+#include <stdlib.h>
 
 
 int first_method();
@@ -23,6 +25,16 @@ int do_while_loop_practice();
 int nested_for_loops();
 int break_vs_continue();
 int array_practice_one();
+int variable_value_swap();
+int sort_an_array();
+int structs_part_one();
+int typdef();
+void array_of_structs();
+int random_number_guessing_game();
+int enums_practice();
+int random_numbers();
+int quiz_game();
+int memory_addressing();
 
 
 int main(){
@@ -53,9 +65,22 @@ int main(){
     //for_loop_practice(22);
     // while_loop_practice();
     // do_while_loop_practice();
-    nested_for_loops();
-    //reak_vs_continue();
+    //nested_for_loops();
+    //break_vs_continue();
     //array_practice_one();
+    //print_array_with_loop();
+    //multi_array();
+    //string_array();
+    // variable_value_swap();
+    //sort_an_array();
+    //structs_practice();
+    //typdef_practice();
+    // array_of_structs();
+    //enums_practice();
+    // random_numbers();
+    // random_number_guessing_game();
+    //quiz_game();
+    memory_addressing();
 
     return 0; //return 0 if program runs successfully, else return 1
 }
@@ -455,14 +480,466 @@ int do_while_loop_practice()
 }
 
 int nested_for_loops(){
+
+    int rows;
+    int columns;
+    char symbol;
+
+    printf("\nEnter number of rows: ");
+    scanf("%d", &rows);
+
+    printf("Enter number of columns: ");
+    scanf("%d", &columns);
+
+    printf("Enter a symbol to use: ");
+    scanf("%c", &symbol);
+    scanf("%c");
+
+    for (int i = 1; i <= rows; i++)
+    {
+        for(int j=1; j <= columns; j++)
+        {
+            printf("%c", symbol);
+        }
+
+        printf("\n");
+    }
+    
     return 0;
 }
 
 int break_vs_continue(){
+    // a continue statement will skip the rest of the code for the condition you set, and force the next iteration of the loop
+    // a break statement will stop the loop entirely and not continue running the loop.
+
+    // example for CONTINUE
+    // for (int i = 1; i <= 20; i++)
+    // {
+    //    if (i == 13){
+    //     continue;
+    //    }
+
+    //    printf("%d\n", i);
+
+    // }
+
+     // example for CONTINUE
+     for (int i = 1; i <= 20; i++)
+     {
+        if (i == 13){
+         break;
+        }
+        printf("%d\n", i); 
+     }
+
+
     return 0;
 }
 
 int array_practice_one(){
+    // a data structure that can store many values OF THE SAME DATA TYPE
+    //they are fixed sizes and cannot change after running the program ** you cant add or remove elements in an array **
 
+    double prices[] = {1.2, 3.5, 5.99, 25.00};
+
+    printf("$%.2lf", prices[3]);
+
+    return 0;
+}
+
+int print_array_with_loop(){
+    // a data structure that can store many values OF THE SAME DATA TYPE
+    //they are fixed sizes and cannot change after running the program ** you cant add or remove elements in an array **
+
+    double prices[] = {1.244, 3.5, 5.99, 25.00, 33, 199.22};
+    double size_of_array = sizeof(prices)/sizeof(prices[0]);
+
+
+    for (int i = 0; i < size_of_array; i++){
+        printf("$%.2lf \n", prices[i]);
+    }
+    
+
+    return 0;
+}
+
+int multi_array(){
+    //a 2D array is where each element of the array is an entire OTHER array. useful if you need a matrix, grid or table of data (row/column)
+    // the numbers[][] = first  [] specifies max amout of arrays within the main array.
+    //                   second [] specifies max items in each array 
+    int numbers[2][3] = {{5,7,9}, {13,14,15}}; 
+   
+    int size_of_array = sizeof(numbers)/sizeof(numbers[0]);
+    int size_of_mini = sizeof(numbers)/sizeof(numbers[0][1]);
+
+    //printf("%d", numbers[1][2]);
+    //printf("%d", size_of_array); 
+
+
+    for (int i=0; i < size_of_array; i++)
+        {
+            for(int j=0; j < 3; j++)
+            {
+                printf("%d ", numbers[i][j]);
+            }
+            printf("\n");
+        }
+    
+        
+    return 0;
+}
+
+int string_array(){
+    //in an array of strings we cannot directly change one of the values, 
+    char cars[][10] = {"Gladiator", "Mustang", "Pantera"};
+
+    //to update an individual value you must use the string copy strcpy function
+    strcpy(cars[0], "Tesla");
+
+    //printf("%s", cars[1]);
+    // to print the values of the array
+    for(int i = 0; i < sizeof(cars)/sizeof(cars[0]); i++)
+    {
+        printf("%s\n", cars[i]);
+    };
+}
+
+int variable_value_swap()
+{ //very useful in sorting algorithms
+
+    char x = 'X';
+    char y = 'Y';
+    //to swap, create a temp variable to store a value in transit
+    char temp;
+
+    temp = y;
+    y = x;
+    x = temp;
+
+    printf("X = %c\n", x);
+    printf("Y = %c\n", y);
+
+    //working with strings is a little different,
+    // you may need to specify the size of the arrays to prevent unexpected behavior
+    char a[8] = "soda";
+    char b[8] = "water";
+    char temp_value[15];
+
+    printf("\n");
+    printf("Original A == %s\n", a);
+    printf("Original B == %s\n", b);
+
+    
+    printf("\n ~~~~ SWAPPING VALUES ~~~\n");
+    strcpy(temp_value, a);
+    strcpy(a, b);
+    strcpy(b, temp_value);
+
+    printf("\n");
+    printf("A == %s\n", a);
+    printf("B == %s\n", b);
+
+}
+
+int sort_an_array()
+{
+    int array[]= {6, 1, 4, 5, 6, 8, 19, 22, 4, 2};
+    int size = sizeof(array)/sizeof(array[0]);
+
+    print_array(array, size);
+    sort(array, size);
+    
+
+
+    return 0;
+
+}
+
+void sort(int array[], int size)
+{ 
+    for(int i = 0; i < size - 1; i++)
+    {
+        for (int j = 0; j < size - 1; j++)
+        {
+            if (array[j] > array[j+1])
+            {
+                int temp = array[j];
+                array[j] = array[j + 1];
+                array[j+1] = temp;
+            };
+        };
+    };
+
+    printf("\n New Array after sorting:\n");
+    print_array(array, size);
+}
+
+void print_array(int array[], int size)
+{
+    printf("Array : {");
+    for (int i = 0; i < size; i++)
+    {
+        if (i == size - 1)
+        {
+            printf("%d", array[i]);
+        }
+        else{
+        printf("%d, ", array[i]);
+        }
+    }
+    printf("}");
+
+}
+
+struct Player
+{
+    // struct = collection of related members ("variables")
+    //          they can be different data types
+    //          listed under ONE NAME in a block of memory
+    //          very similar to classes in other languages (but cannot contain methods)
+
+    //its almost like we're creating a variable that can be used over and over... see structs_practice()
+
+    char name[25];
+    int score;
+
+};
+
+void structs_practice(){
+
+    struct Player player1;
+    struct Player player2;
+    
+   strcpy(player1.name, "Michael");
+   player1.score = 4;
+
+   strcpy(player2.name, "Johan");
+   player2.score = 2;
+
+   printf("%s \n", player1.name);
+   printf("%d", player1.score);
+}
+
+typedef char user[25];
+
+typedef struct {
+    char name[25];
+    char password[12];
+    int id;
+
+} userStruct;
+
+void typdef_practice(){
+    // a reserved keyword that gives an existing data type a "nickname"
+    // very similar to a struct but only for a specific data type, not an object
+
+    user user1= "Bro";
+
+    userStruct user1struct = {"Mike", "passewrd", 11122};
+
+
+    printf("%s\n", user1struct.name);
+    printf("%s\n", user1struct.password);
+    printf("%d\n", user1struct.id);
+
+}
+
+struct student
+{
+    char name[50];
+    float gpa;
+    char favoriteBook[50];
+};
+
+void array_of_structs(){
+
+    struct student student1= {"Spongebob", 3.0, ""};
+    struct student student2= {"Patrick", 4.0, ""};
+    struct student student3= {"Sandy", 2.0, ""};
+    struct student student4= {"Squidward", 2.5, "Narnia"};
+
+    struct student students[] = {student1, student2, student3, student4};
+
+    for (int i = 0; i < sizeof(students)/sizeof(students[0]); i++)
+        {
+           
+            for (int i = 0; i < sizeof(students)/sizeof(students[0]); i++) 
+            {
+                printf("%s (%.1f)\n", students[i].name, students[i].gpa);
+
+                if (strlen(students[i].favoriteBook) > 0) {
+                    printf("Favorite Book: %s\n", students[i].favoriteBook);
+                }
+            }
+        }
+}
+
+int enums_practice(){
+    //each enum has a number associated with it, mouseover the enum to see it's number
+    // you can assign each enum a custom value if you wish, 
+    enum Day{Sun = 1, Mon, Tue, Wed, Thur, Fri, Sat};
+
+    enum Day today = Sun;
+    // can be declared inside or outside of the main function
+    // a user defined type of named integer identifiers to help make the program more readable
+    // treated as integers
+
+    if (today == Sun || today == Sat)
+    {
+        printf("Its the weekend!! party time!!");
+    }
+
+    else
+    {
+        printf("Today is: %d \n", today);
+        printf("I have to work sadddd");
+    }
+}
+
+int random_numbers(){
+
+    srand(time(0));
+
+    int number1 = ((rand() % 100) + 1);
+    int number2 = ((rand() % 100) + 1);
+    int number3 = ((rand() % 100) + 1);
+
+    printf("Your first number is: %d \n", number1);
+    printf("Your second number is: %d \n", number2);
+    printf("Your third number is: %d ", number3);
+
+}
+
+int random_number_guessing_game(){
+    srand(time(0));
+    int playerGuess;
+    int numberToGuess = ((rand() % 50) + 1);
+    int guessCounter = 5;
+
+    printf("Guess a number between 1 and 50: ");
+    
+while (guessCounter > 0)
+    {
+    printf("\nYou have %d guesses left. \n Enter your guess: ", guessCounter);
+    scanf("%d", &playerGuess);
+
+        if (playerGuess == numberToGuess)
+            {
+                printf("Your guess >> %d << \n ~~~!!! IS CORRECT!! !!~~~ \n", playerGuess);
+                break;
+            }
+
+        if (playerGuess < numberToGuess)
+            {
+                printf("Too low! try again!");
+                guessCounter--;
+                printf("Guesses left: %d", guessCounter);
+            }
+
+        else if (playerGuess > numberToGuess)
+            {
+                printf("Too High! Try again!");
+                guessCounter--;
+            }
+
+    }
+    if(guessCounter == 0)
+        {
+            printf("\nthe number was : %d \n", numberToGuess);
+            printf("you lose\n loser");
+        }
+
+    return 0;
+}
+
+int quiz_game(){
+    char questions[][100] = 
+        {
+         "1. What is the name Spongebob's pet snail?", 
+         "2. What instrument does Squidward play?",
+         "3. What does Mr. krab's love more than anything?"
+        };
+    
+    char options[][4][100] = 
+        {
+            {"A. Gary", "B. Larry", "C. Barry", "D. Harry"},
+            {"A. Guitar", "B. Clarinet", "C. Piano", "D. Drums"},
+            {"A. Money", "B. Jellyfish", "C. Krabby Patties", "D. Sandy"}
+        };
+
+    char answers[3] = {'A', 'B', 'A'};
+    int numberOfQuestions = (sizeof(questions)/sizeof(questions[0]));
+    char playerGuess;
+    int playerScore;
+
+    for (int i = 0; i < numberOfQuestions; i++){
+        printf("*********************************\n");
+        printf("%s\n", questions[i] );
+
+        for (int j = 0; j < 4; j++)
+        {
+            printf("%s ", options[i][j]);
+            
+        }
+        printf("\n");
+        printf("*********************************\n");
+
+    }
+
+    // printf("First question: \n %s, \n %s", questions[0], options[0]);
+
+    // printf("\nSecond question: \n %s, \n %s", questions[1], options[0]);
+
+    // printf("\nFinal question: \n %s, \n %s", questions[2], options[0]);
+
+
+    return 0;
+}
+
+int bitwise_operators(){
+    // special operators used in bit level programming (knowing binary is importamt for this topic)
+
+    // & = AND, | = OR, ^ = XOR, << = left shift, >> = right shift
+
+    int x = 6; // 6  = 00000110
+    int y = 12;// 12 = 00001100
+    int z = 0; // 0  = 00000000
+
+    //operator examples 
+    z = x & y; // if bit in corresponding x and y
+               // columns are both the same, then bit in corresponding z column changes to 1
+
+    printf("AND = %d\n", z);
+
+    z = x | y;
+    printf("OR = %d\n", z);
+
+    z = x & y;
+    printf("ZOR = %d\n", z);
+    
+    //shift bits left or right a specified number of times.
+    // example 10110010 << is 01100100 
+   
+    z = x << 1;
+    printf("AND = %d\n", z);
+    
+    return 0;
+}
+
+int writing_files() {
+    
+    
+    return 0;
+}
+
+int reading_files() {
+    
+    
+    return 0;
+}
+
+int tic_tac_toe() {
+    
+    
     return 0;
 }
