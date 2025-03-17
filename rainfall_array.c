@@ -58,6 +58,7 @@ int weather_arrays()
                 break;
             }
         }
+        
         printf("\n");
     }
 
