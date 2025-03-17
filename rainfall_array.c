@@ -25,42 +25,66 @@ int weather_arrays()
 
     printf("RAINFAIL VALUES: \n \n");
 
+    int simple_year = 2020;
+    int get_yearly_average[5][12];
+
+  
+
     for (int i = 0; i <= 4; i++)
     {
-        printf("Year %d", i);
+        printf("Year %d", simple_year);
+
+        simple_year++;
 
         for (int j = 0; j <= 11; j++)
         {
             switch (i)
             {
-            case 0:
-                printf(" %.2f, ", array_of_values[i][j]);
-                break;
+                int result = array_arrithmetic(array_of_values, 5);
+                case 0:
+                    printf(" %.2f, ", result);
+                    break;
 
-            case 1:
-                printf(" %.2f, ", array_of_values[i][j]);
-                break;
+                case 1:
+                    printf(" %.2f, ", array_of_values[i][j]);
+                    break;
 
-            case 2:
-                printf(" %.2f, ", array_of_values[i][j]);
-                break;
+                case 2:
+                    printf(" %.2f, ", array_of_values[i][j]);
+                    break;
 
-            case 3:
-                printf(" %.2f, ", array_of_values[i][j]);
-                break;
+                case 3:
+                    printf(" %.2f, ", array_of_values[i][j]);
+                    break;
 
-            case 4:
-                printf(" %.2f, ", array_of_values[i][j]);
-                break;
+                case 4:
+                    printf(" %.2f, ", array_of_values[i][j]);
+                    break;
 
-            case 5:
-                printf(" %.2f, ", array_of_values[i][j]);
-                break;
+                case 5:
+                    printf(" %.2f, ", array_of_values[i][j]);
+                    break;
+                
             }
         }
+
         
+
+        printf("\n");
+        printf("\n");
         printf("\n");
     }
 
     return 0;
+}
+
+int array_arrithmetic(float (*arr)[12], int rows)
+{
+    
+    for (int i = 0; i <= rows; ++i) {
+
+        for (int j = 0; j <= 12; ++j) {
+            return arr[i][j];
+        }
+    }    
 }
