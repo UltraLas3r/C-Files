@@ -1,1 +1,1 @@
-1
+printf("YEARLY AVERAGE = %d ", subtot / 5);

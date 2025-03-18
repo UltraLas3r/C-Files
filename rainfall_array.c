@@ -13,78 +13,62 @@ int main()
     return 0;
 }
 
+
+#define MONTHS 12
+#define YEARS 5
+
 int weather_arrays()
 {
-    float array_of_values[5][12] =
+    float rain[5][12] =
         {
-            {14.23, 3.98, 18.47, 6.54, 11.34, 7.89, 1.23, 19.45, 0.56, 10.78, 5.34, 17.89},
-            {12.34, 4.56, 15.67, 3.45, 9.87, 2.34, 16.78, 7.89, 1.23, 13.56, 6.78, 8.90},
-            {11.22, 5.67, 12.34, 8.90, 4.56, 19.78, 3.45, 17.89, 2.34, 14.56, 7.89, 10.12},
-            {6.78, 1.23, 14.56, 19.45, 3.45, 12.34, 5.67, 17.89, 8.90, 2.34, 13.56, 11.22},
-            {9.87, 0.56, 18.47, 6.54, 15.67, 1.23, 10.78, 4.56, 19.45, 7.89, 3.45, 16.78}};
+            {4.23, 3.98, 8.47, 6.54, 1.34, 7.89, 1.23, 9.45, 0.56, 1.78, 5.34, 7.89},
+            {1.34, 4.56, 5.67, 3.45, 9.87, 2.34, 6.78, 7.89, 1.23, 3.56, 6.78, 8.90},
+            {1.22, 5.67, 2.34, 8.90, 4.56, 9.78, 3.45, 7.89, 2.34, 4.56, 7.89, 1.12},
+            {6.78, 1.23, 4.56, 9.45, 3.45, 2.34, 5.67, 7.89, 8.90, 2.34, 1.56, 1.22},
+            {9.87, 0.56, 8.47, 6.54, 1.67, 1.23, 1.78, 4.56, 1.45, 7.89, 3.45, 1.78}
+        };
 
     printf("RAINFAIL VALUES: \n \n");
 
-    int simple_year = 2020;
-    int get_yearly_average[5][12];
+    int year, month;
+    float subtot, total;
 
-  
-
-    for (int i = 0; i <= 4; i++)
+    for (year = 0, total=0; year < YEARS; year++)
     {
-        printf("Year %d", simple_year);
+        printf("Year \t RAINFALL (inches)\n");
 
-        simple_year++;
-
-        for (int j = 0; j <= 11; j++)
+        for (month = 0, subtot = 0; month < MONTHS; month++)
         {
-            switch (i)
-            {
-                int result = array_arrithmetic(array_of_values, 5);
-                case 0:
-                    printf(" %.2f, ", result);
-                    break;
-
-                case 1:
-                    printf(" %.2f, ", array_of_values[i][j]);
-                    break;
-
-                case 2:
-                    printf(" %.2f, ", array_of_values[i][j]);
-                    break;
-
-                case 3:
-                    printf(" %.2f, ", array_of_values[i][j]);
-                    break;
-
-                case 4:
-                    printf(" %.2f, ", array_of_values[i][j]);
-                    break;
-
-                case 5:
-                    printf(" %.2f, ", array_of_values[i][j]);
-                    break;
-                
-            }
+            subtot += rain[year][month];
         }
 
-        
+        printf("%5d\t%15.1f\n", (2010 + year), subtot);
 
-        printf("\n");
-        printf("\n");
-        printf("\n");
+        total += subtot;
     }
+  
+    printf("\n YEARLY AVERAGE: \t %f", total/YEARS);
+    printf("\n\n");
+    printf(" Monthly Averages: \n");
+    printf("  JAN  FEB   MARCH  APRIL  MAY  JUNE  JULY  AUG   SEPT   OCT  NOV   DEC\n ");
+
+    for (month = 0; month < MONTHS; month++)
+    {
+        for(year = 0, subtot = 0; year < YEARS; year++)
+        {
+            subtot += rain[year][month];
+        }
+            
+
+        printf("%4.1f  ", subtot/YEARS);
+    }
+  
+   
 
     return 0;
 }
 
-int array_arrithmetic(float (*arr)[12], int rows)
+int array_arrithmetic()
 {
-    
-    for (int i = 0; i <= rows; ++i) {
-
-        for (int j = 0; j <= 12; ++j) {
-            return arr[i][j];
-        }
-    }    
+ 
 }
