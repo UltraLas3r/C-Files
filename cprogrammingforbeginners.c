@@ -7,6 +7,7 @@ int initializing_an_array();
 int print_prime_numbers();
 int multi_dimensional_arrays();
 int  more_array_stuff();
+int greatest_common_divisor();
 
 int main(){
 
@@ -14,10 +15,16 @@ int main(){
     // playing_with_arrays1(typeOfArray, 33);
     // playing_with_pointers1();
     // initializing_an_array();
-   // print_prime_numbers();
-   // multi_dimensional_arrays();
-    more_array_stuff();
-    
+    // print_prime_numbers();
+    // multi_dimensional_arrays();
+    //more_array_stuff();
+
+    int num1 = 88;
+    int num2 = 54;
+
+    greatest_common_divisor(num1, num2);
+
+
     return 0;
 
 }
@@ -156,8 +163,21 @@ int more_array_stuff(){
 }
 
 
-int playing_with_pointers1()
+int greatest_common_divisor(int num1, int num2, char operation)
 {
+    switch(operation)
+    {
+
+
+        
+
+    }
+
+
+
+    
+    
+    
 
 
 
